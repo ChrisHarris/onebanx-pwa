@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import Header from './components/Header'
 import SignUpButton from "./components/SignUpButton";
 import Welcome from "./components/Welcome";
 import { getUserId } from "./auth";
@@ -32,10 +33,14 @@ export default function App() {
 
   const showWelcome = isUnlocked && userId;
 
+
+
+
   return (
     <main style={{ padding: "20px" }}>
       {!showWelcome && (
         <>
+        <Header />
           <h1>Passkey PWA Demo</h1>
           <p>Tap below to Sign Up or Unlock with a Passkey.</p>
           <SignUpButton onAuthenticated={handleAuthenticated} />

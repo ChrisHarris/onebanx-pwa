@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+<title>OneBanx PWA Template Test</title>
+
+<meta name="theme-color" content="#F1F1F1" />
+<script src="https://kit.webawesome.com/221c4afff8354beb.js" crossorigin="anonymous"></script>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@awesome.me/webawesome@3.0.0/dist-cdn/styles/webawesome.css">
+
+<style>
+	@font-face {
+  font-family: 'GT Ultra Median Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('public/fonts/GT-Ultra-Median-Regular.woff2') format('woff2'),
+       url('public/fonts/GT-Ultra-Median-Regular.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GT Ultra Standard Light';
+  font-style: normal;
+  font-weight: 300; /* Light */
+  src: url('public/fonts/GT-Ultra-Standard-Light.woff2') format('woff2'),
+       url('public/fonts/GT-Ultra-Standard-Light.woff') format('woff');
+}
+
+@font-face {
+  font-family: 'GT Ultra Standard Regular';
+  font-style: normal;
+  font-weight: 400; /* Regular */
+  src: url('public/fonts/GT-Ultra-Standard-Regular.woff2') format('woff2'),
+       url('public/fonts/GT-Ultra-Standard-Regular.woff') format('woff');
+}
+
+:root {
+--racing-green:#024731;
+--heritage-green:#006A4D;
+--everyday-green:#11B67A;
+--vibrant-green:#6CF479;
+--calm-green:#C7FFC6;
+--highlight-green:#0BE248;
+--light-grey:#F1F1F1;
+
+--wa-color-focus:var(--highlight-green);
+
+--wa-font-family-body:GT Ultra Standard Light, ui-sans-serif, system-ui, sans-serif;
+--wa-font-family-heading:GT Ultra Median Regular, ui-sans-serif, system-ui, sans-serif;
+}
+
+body {background-color:var(--light-grey);}
+
+header {
+	position:sticky;
+	top:0;
+	display:grid;
+	padding:0em 1em;
+	grid-template-columns:5fr 2fr;
+	gap:1em;
+	background-color:var(--everyday-green);
+}
+header wa-button:first-child {
+	background:url(public/business-cashflo/logo-5000x1000.svg) left center / contain no-repeat;
+}
+
+header wa-button:last-child {
+	background:url(public/default/powered-by-onebanx-2000x1000.svg) right center / contain no-repeat;
+}
+header wa-button::part(label) {color:rgba(0,0,0,0); font-size:0em;}
+header wa-button:hover {background-color:red!important;}
+main {padding:1em;}
+
+footer {position:absolute; bottom:0; width:100%; padding:1em; background-color:var(--calm-green);}
+</style>
+</head>
+<body>
+    <div id="root">
+		<header>
+			<wa-button size="large" class="logo" appearance="plain"  href="https://example.com/">Business CashFlo</wa-button>
+			<wa-button size="large" class="powered-by" appearance="plain" href="https://example.com/">powered by OneBanx</wa-button>
+		</header>
+		<main class="wa-stack">
+<wa-animation name="fadeInUp" easing="ease-out" duration="500" delay="250"iterations="1" play>
+<wa-card>
+<div class="wa-flank:end wa-align-items-end" style="padding-bottom:1em;">
+<div>
+<span class="wa-body-s">Welcome to</span><br>
+<h1 class="wa-heading-m">
+Business CashFlo Leeds
+</h1>
+</div>
+<wa-icon name="id-badge"  variant="light" style="font-size: 2em;"></wa-icon>
+</div>
+<!--
+<p>To deposit with this service you’ll need your phone number and a Lloyds Bank account.</p>
+<p><wa-input label="Your mobile phone number" type="tel" placeholder="UK Mobile number" with-clear></wa-input></p>
+<p><wa-checkbox size="small">I agree to the <a href="">Terms and Conditions</a></wa-checkbox></p>
+-->
+<wa-button size="small" href="">
+<wa-icon slot="end" name="arrow-right-to-bracket"></wa-icon>
+Sign up
+</wa-button>
+</wa-card>
+</wa-animation>
+
+		
+		<wa-card>
+			<img slot="media" src="public/business-cashflo/Help.jpg" />
+			<h1>Help using this machine</h1>
+			<p>
+		</wa-card>		
+		</main>
+
+
+		<footer>
+			<p>powered by OneBanx</p>
+		</footer>
+    </div>
+
+  </body>
+</html>
