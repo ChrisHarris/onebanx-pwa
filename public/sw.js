@@ -1,4 +1,4 @@
-const CACHE_NAME = "pwa-runtime-cache-v5";
+const CACHE_NAME = "pwa-runtime-cache-v6";
 
 function offlineResponse() {
   return new Response("Offline", {
@@ -41,7 +41,13 @@ self.addEventListener("fetch", (event) => {
 
   // Cache-first strategy for icons (they don't change often)
   if (url.pathname.startsWith("/icons/")) {
-    event.respondWith(handleIcon(request));
+    event.respondWith(handleStaticAsset(request));
+    return;
+  }
+
+  // Cache-first strategy for fonts
+  if (url.pathname.startsWith("/fonts/")) {
+    event.respondWith(handleStaticAsset(request));
     return;
   }
 
@@ -77,8 +83,8 @@ async function handleRequest(request) {
   }
 }
 
-// Cache-first strategy for icons - serve from cache if available
-async function handleIcon(request) {
+// Cache-first strategy for static assets (icons, fonts) - serve from cache if available
+async function handleStaticAsset(request) {
   const cache = await caches.open(CACHE_NAME);
   const cached = await cache.match(request);
 

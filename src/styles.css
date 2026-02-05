@@ -3,24 +3,24 @@
   font-family: 'GT Ultra Median Regular';
   font-style: normal;
   font-weight: 400;
-  src: url('fonts/GT-Ultra-Median-Regular.woff2') format('woff2'),
-       url('fonts/GT-Ultra-Median-Regular.woff') format('woff');
+  src: url('/fonts/GT-Ultra-Median-Regular.woff2') format('woff2'),
+       url('/fonts/GT-Ultra-Median-Regular.woff') format('woff');
 }
 
 @font-face {
   font-family: 'GT Ultra Standard Light';
   font-style: normal;
   font-weight: 300; /* Light */
-  src: url('fonts/GT-Ultra-Standard-Light.woff2') format('woff2'),
-       url('fonts/GT-Ultra-Standard-Light.woff') format('woff');
+  src: url('/fonts/GT-Ultra-Standard-Light.woff2') format('woff2'),
+       url('/fonts/GT-Ultra-Standard-Light.woff') format('woff');
 }
 
 @font-face {
   font-family: 'GT Ultra Standard Regular';
   font-style: normal;
   font-weight: 400; /* Regular */
-  src: url('fonts/GT-Ultra-Standard-Regular.woff2') format('woff2'),
-       url('fonts/GT-Ultra-Standard-Regular.woff') format('woff');
+  src: url('/fonts/GT-Ultra-Standard-Regular.woff2') format('woff2'),
+       url('/fonts/GT-Ultra-Standard-Regular.woff') format('woff');
 }
 
 :root {
