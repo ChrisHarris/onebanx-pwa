@@ -3,8 +3,10 @@ import ReactDOM from "react-dom/client";
 
 // Web Awesome web components + styles
 import "@awesome.me/webawesome/dist/webawesome.js";
+import "./icons.js"; // Self-hosted icon library (must be before other components)
 import "@awesome.me/webawesome/dist/components/button/button.js";
 import "@awesome.me/webawesome/dist/styles/webawesome.css";
+import "./styles.css";
 
 import App from "./App";
 

@@ -9,6 +9,16 @@ export default function App() {
   const [isUnlocked, setIsUnlocked] = useState(false);
   const [qrCode, setQrCode] = useState(null);
 
+  // Sync theme-color meta tag with CSS variable
+  useEffect(() => {
+    const themeColor = getComputedStyle(document.documentElement)
+      .getPropertyValue("--theme-color")
+      .trim();
+    if (themeColor) {
+      document.querySelector('meta[name="theme-color"]')?.setAttribute("content", themeColor);
+    }
+  }, []);
+
   // Read stored user ID (if any) – doesn't unlock, just remembers who
   useEffect(() => {
     const stored = getUserId();
@@ -37,17 +47,25 @@ export default function App() {
 
 
   return (
-    <main style={{ padding: "20px" }}>
-      {!showWelcome && (
-        <>
-        <Header />
-          <h1>Passkey PWA Demo</h1>
-          <p>Tap below to Sign Up or Unlock with a Passkey.</p>
+    <main>
+    <Header />
+    {!showWelcome && (
+      <>
+        <section class="wa-stack">
+        <wa-card>
+          <wa-button>Get Started</wa-button>
+        </wa-card>
+        
+        <wa-card>
           <SignUpButton onAuthenticated={handleAuthenticated} />
-        </>
-      )}
+        </wa-card>
+        </section>
+      </>
+    )}
 
-      {showWelcome && <Welcome userId={userId} qrCode={qrCode} />}
+      
+
+    {showWelcome && <Welcome userId={userId} qrCode={qrCode} />}
     </main>
   );
 }

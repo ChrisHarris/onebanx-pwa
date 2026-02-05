@@ -1,4 +1,4 @@
-const CACHE_NAME = "pwa-runtime-cache-v3";
+const CACHE_NAME = "pwa-runtime-cache-v5";
 
 function offlineResponse() {
   return new Response("Offline", {
@@ -27,6 +27,7 @@ self.addEventListener("activate", (event) => {
 
 self.addEventListener("fetch", (event) => {
   const { request } = event;
+  const url = new URL(request.url);
 
   if (request.method !== "GET") {
     return;
@@ -35,6 +36,12 @@ self.addEventListener("fetch", (event) => {
   // For navigation requests, keep an offline copy of the shell (index.html).
   if (request.mode === "navigate") {
     event.respondWith(handleNavigation(request));
+    return;
+  }
+
+  // Cache-first strategy for icons (they don't change often)
+  if (url.pathname.startsWith("/icons/")) {
+    event.respondWith(handleIcon(request));
     return;
   }
 
@@ -67,5 +74,25 @@ async function handleRequest(request) {
     return network;
   } catch {
     return cached ? cached.clone() : offlineResponse();
+  }
+}
+
+// Cache-first strategy for icons - serve from cache if available
+async function handleIcon(request) {
+  const cache = await caches.open(CACHE_NAME);
+  const cached = await cache.match(request);
+
+  if (cached) {
+    return cached.clone();
+  }
+
+  try {
+    const network = await fetch(request);
+    if (network.ok) {
+      cache.put(request, network.clone());
+    }
+    return network;
+  } catch {
+    return offlineResponse();
   }
 }
