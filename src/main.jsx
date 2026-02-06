@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 // Web Awesome web components + styles
 import "@awesome.me/webawesome/dist/webawesome.js";
@@ -9,6 +10,7 @@ import "@awesome.me/webawesome/dist/styles/webawesome.css";
 import "./styles.css";
 
 import App from "./App";
+import QR from "./pages/QR";
 
 if ("serviceWorker" in navigator) {
   window.addEventListener("load", () => {
@@ -18,4 +20,11 @@ if ("serviceWorker" in navigator) {
   });
 }
 
-ReactDOM.createRoot(document.getElementById("root")).render(<App />);
+ReactDOM.createRoot(document.getElementById("root")).render(
+  <BrowserRouter>
+    <Routes>
+      <Route path="/" element={<App />} />
+      <Route path="/qr" element={<QR />} />
+    </Routes>
+  </BrowserRouter>
+);

@@ -4,7 +4,7 @@ import { WaButton, WaIcon } from "@awesome.me/webawesome/dist/react";
 export default function Header() {
   return (
     <header className="wa-split">
-      <h1 className="wa-cluster">
+      <h1 className="wa-cluster wa-gap-xs">
         <img src="/images/icon.svg" alt="" />
         Business Cash Flow
       </h1>
