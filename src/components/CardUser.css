@@ -1,0 +1,59 @@
+/* Card User Template */
+
+/* User Not Signed In */
+.state-user-not-signed-in {
+
+    .state-template {
+        display: grid;
+        grid-template-areas:
+        "subtitle   subtitle   subtitle   subtitle   subtitle   emblem   "
+        "title      title      title      title      title      emblem   "
+        "label-gs   label-gs   label-gs   label-si   label-si   label-si "
+        "button-gs  button-gs  button-gs  button-si  button-si  button-si";
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto auto;
+        gap: 0 var(--wa-space-m);
+    }
+
+    .area-subtitle {
+        grid-area: subtitle;
+        place-self: end start;
+        margin-bottom: 0;
+    }
+
+    .area-title {
+        grid-area: title;
+        place-self: start start;
+        margin-bottom: var(--wa-space-s);
+    }
+
+    .area-emblem {
+    grid-area: emblem;
+    place-self: center end;
+    }
+
+    .area-label-get-started {
+    grid-area: label-gs;
+    place-self: end start;
+    margin-bottom: 0;
+    }
+
+    .area-label-sign-in {
+    grid-area: label-si;
+    place-self: end start;
+    margin-bottom: 0;
+    }
+
+    .area-button-get-started {
+    grid-area: button-gs;
+    place-self: start stretch;
+    margin-bottom: 0;
+    }
+
+    .area-button-sign-in {
+    grid-area: button-si;
+    place-self: start stretch;
+    margin-bottom: 0;
+    }
+
+}

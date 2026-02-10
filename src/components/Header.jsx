@@ -1,5 +1,4 @@
 import React from "react";
-import { WaButton, WaIcon } from "@awesome.me/webawesome/dist/react";
 
 export default function Header() {
   return (
@@ -8,9 +7,9 @@ export default function Header() {
         <img src="/images/icon.svg" alt="" />
         Business Cash Flow
       </h1>
-      <WaButton variant="neutral" appearance="plain" pill={true}>
-        <WaIcon name="circle-question" variant="light" />
-      </WaButton>
+      <wa-button variant="neutral" appearance="plain" pill>
+        <wa-icon name="circle-question" variant="light" />
+      </wa-button>
     </header>
   );
 }

@@ -15,23 +15,23 @@ export default function QR() {
 
       <div className="wa-grid qr-grid wa-gap-xl">
         <wa-card>
-          <h2 slot="header">Leeds</h2>
-          <wa-qr-code value="https://onebanx-pwa.pages.dev/?location=Leeds" label="Visit Leeds"></wa-qr-code>
+          <h2 slot="header">LLoyds<br />Leeds</h2>
+          <wa-qr-code value="https://onebanx-pwa.pages.dev/?institution=Lloyds&location=Leeds+City+Centre" label="Visit Leeds"></wa-qr-code>
         </wa-card>
 
         <wa-card>
-          <h2 slot="header">Manchester</h2>
-          <wa-qr-code value="https://onebanx-pwa.pages.dev/?location=Manchester" label="Visit Manchester"></wa-qr-code>
+          <h2 slot="header">LLoyds<br />Manchester</h2>
+          <wa-qr-code value="https://onebanx-pwa.pages.dev/?institution=Lloyds&location=Market+Street+Manchester" label="Visit Manchester"></wa-qr-code>
         </wa-card>
 
         <wa-card>
-          <h2 slot="header">Halifax</h2>
-          <wa-qr-code value="https://onebanx-pwa.pages.dev/?location=Halifax" label="Visit Leeds"></wa-qr-code>
+          <h2 slot="header">Halifax<br />Bradford</h2>
+          <wa-qr-code value="https://onebanx-pwa.pages.dev/?institution=Halifax&location=Bank+Street+Bradford" label="Visit Bradford"></wa-qr-code>
         </wa-card>
         
         <wa-card>
-          <h2 slot="header">Redhill</h2>
-          <wa-qr-code value="https://onebanx-pwa.pages.dev/?location=Redhill" label="Visit Leeds"></wa-qr-code>
+          <h2 slot="header">BoS<br />Edinburgh</h2>
+          <wa-qr-code value="https://onebanx-pwa.pages.dev/?institution=Bank+of+Scotland&location=George+Street+Edinburgh" label="Visit Edinburgh"></wa-qr-code>
         </wa-card>
       </div>
     </main>

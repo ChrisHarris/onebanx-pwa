@@ -1,4 +1,8 @@
-/* Custom Fonts */
+/* OB Theme Fonts */
+
+/* These can be loaded according to organisation brand */
+/* They can then be assigned to the appropriate '--wa-font-family' types identified below */
+
 @font-face {
   font-family: 'GT Ultra Median Regular';
   font-style: normal;
@@ -23,8 +27,26 @@
        url('/fonts/GT-Ultra-Standard-Regular.woff') format('woff');
 }
 
+
+
 :root {
-    /* Custom Colors */
+
+    /* OB Theme Font Assignments */
+    --ob-font-family-heading:"GT Ultra Median Regular";
+    --ob-heading-font:"GT Ultra Standard Regular";
+    --ob-font-family-body:"GT Ultra Standard Light";
+
+    --wa-font-family-heading:var(--ob-font-family-heading);
+    --wa-font-family-body:var(--ob-font-family-body);
+
+
+    /* OB Theme Properties */
+
+    /* Named Theme Colors */
+
+    /* These can be named according to organisation brand */
+    /* They can then be assign to the appropriate components identified below */
+
     --white: #FFFFFF;
     --black: #000000;
     --racing-green:#024731;
@@ -42,37 +64,34 @@
     --cloud-blue:#A8BACD;
     --lavender:#A19FF8;
     --meadow-pink:#EBB5EE;
-    --mist-blue:#ADE5DE;	
+    --mist-blue:#ADE5DE;
 
-    /* Fonts */
-    --wa-font-family-heading:"GT Ultra Median Regular";
-    --heading-font:"GT Ultra Standard Regular";
-    --wa-font-family-body:"GT Ultra Standard Light";
-
-    /* Theme */
-    --theme-color: var(--everyday-green);
+    /* Theme Color - This is the color below the status bar on mobile (iOS, Android) and Chrome Tab tint */
+    --ob-theme-color: var(--everyday-green);
 
     /* Main */
-    --wa-color-surface-main:var(--light-grey);
+    --ob-color-surface-main:var(--light-grey);
 
     /* Header */
-    --wa-color-surface-header:var(--everyday-green);
-    --wa-color-on-surface-header: var(--black);
-    --wa-color-surface-header-logo-size:var(--wa-font-size-3xl);
-    --wa-color-on-surface-header-icon: var(--black);
-    --wa-color-on-surface-header-icon-size: var(--wa-font-size-xl);
+    --ob-color-surface-header:var(--everyday-green);
+    --ob-color-on-surface-header: var(--black);
+    --ob-color-surface-header-logo-size:var(--wa-font-size-3xl);
+    --ob-color-on-surface-header-icon: var(--black);
+    --ob-color-on-surface-header-icon-size: var(--wa-font-size-xl);
 
-    --wa-space-header: var(--wa-space-s) var(--wa-space-m);
+    --ob-padding-header: var(--wa-space-s) var(--wa-space-m);
 
-    --wa-font-size-header: var(--wa-font-size-xl);
+    --ob-font-size-header: var(--wa-font-size-xl);
 
     /* Section */
-    --wa-space-section: var(--wa-space-s) var(--wa-space-s);
-    --wa-gap-section: var(--wa-space-m);
+    --ob-space-section: var(--wa-space-s) var(--wa-space-s);
+    --ob-gap-section: var(--wa-space-m);
 
-
-
-
+    /* Card */
+    --ob-color-surface-card:var(--white);
+    --ob-border-radius-card:var(--wa-border-radius-l);
+    --ob-padding-card: var(--wa-space-m) var(--wa-space-m);
+    --ob-color-surface-emblem:var(--calm-green);
 
 }
 
@@ -87,27 +106,27 @@
 
 /* Body */
 body {
-    background-color:var(--wa-color-surface-main);
+    background-color:var(--ob-color-surface-main);
 }
 
-/* Header Layout */
+/* Header */
 header {
 	position:sticky;
 	z-index:1;
 	top:0;
-	background-color:var(--wa-color-surface-header); 
-	color:var(--wa-color-on-surface-header);
-	padding: var(--wa-space-header);
+	background-color:var(--ob-color-surface-header); 
+	color:var(--ob-color-on-surface-header);
+	padding: var(--ob-padding-header);
 	overflow:hidden;
 	box-shadow: 0 8px 20px rgb(var(--shadow-color) / 5%);
 
     h1 {
-        font-size: var(--wa-font-size-header);
+        font-size: var(--ob-font-size-header);
     }
 	
 	img {
-		height:var(--wa-color-surface-header-logo-size);
-        width:var(--wa-color-surface-header-logo-size);
+		height:var(--ob-color-surface-header-logo-size);
+        width:var(--ob-color-surface-header-logo-size);
         aspect-ratio:1/1;
 	}
 	
@@ -121,13 +140,29 @@ header {
         }
 		
 	    wa-icon {
-            font-size:var(--wa-color-on-surface-header-icon-size); 
-            color:var(--wa-color-on-surface-header-icon);
+            font-size:var(--ob-color-on-surface-header-icon-size); 
+            color:var(--ob-color-on-surface-header-icon);
         }
 	}
 }
 
+/* Section */
 section {
-    padding: var(--wa-space-section);
-    gap:var(--wa-gap-section);
+    padding: var(--ob-space-section);
+    gap:var(--ob-gap-section);
 }
+
+/* Card */
+wa-card {
+	background:var(--ob-color-surface-card);
+	box-shadow: 0 8px 20px rgb(var(--shadow-color) / 5%);
+	border-radius:var(--ob-border-radius-card);
+	&::part(body) {
+		padding:var(--ob-padding-card);
+    }
+
+    wa-avatar.emblem {
+        background:var(--ob-color-surface-emblem);
+    }
+}
+
