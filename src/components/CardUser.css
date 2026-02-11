@@ -8,10 +8,24 @@
         grid-template-areas:
         "subtitle   subtitle   subtitle   subtitle   subtitle   emblem   "
         "title      title      title      title      title      emblem   "
-        "label-gs   label-gs   label-gs   label-si   label-si   label-si "
-        "button-gs  button-gs  button-gs  button-si  button-si  button-si";
+        "label-su   label-su   label-su   label-si   label-si   label-si "
+        "button-su  button-su  button-su  button-si  button-si  button-si";
         grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: auto auto auto auto;
+        gap: 0 var(--wa-space-m);
+    }
+
+    .state-template.alt {
+        display: grid;
+        grid-template-areas:
+        "subtitle   subtitle   subtitle   subtitle   subtitle   emblem   "
+        "title      title      title      title      title      emblem   "
+        "label-su   label-su   label-su   label-su   label-su   label-su "
+        "button-su  button-su  button-su  button-su  button-su  button-su"
+        "label-si   label-si   label-si   label-si   label-si   label-si "
+        "button-si  button-si  button-si  button-si  button-si  button-si";
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-rows: auto auto auto auto auto auto;
         gap: 0 var(--wa-space-m);
     }
 
@@ -24,7 +38,7 @@
     .area-title {
         grid-area: title;
         place-self: start start;
-        margin-bottom: var(--wa-space-s);
+        margin-bottom: 0;
     }
 
     .area-emblem {
@@ -32,20 +46,20 @@
     place-self: center end;
     }
 
-    .area-label-get-started {
-    grid-area: label-gs;
+    .area-label-sign-up {
+    grid-area: label-su;
     place-self: end start;
-    margin-bottom: 0;
+    margin:var(--wa-space-s) 0 0;
     }
 
     .area-label-sign-in {
     grid-area: label-si;
     place-self: end start;
-    margin-bottom: 0;
+    margin:var(--wa-space-s) 0 0;
     }
 
-    .area-button-get-started {
-    grid-area: button-gs;
+    .area-button-sign-up {
+    grid-area: button-su;
     place-self: start stretch;
     margin-bottom: 0;
     }

@@ -8,6 +8,15 @@ import "./icons.js"; // Self-hosted icon library (must be before other component
 import "./webawesome.js"; // All Web Awesome component registrations
 import "@awesome.me/webawesome/dist/styles/webawesome.css";
 import "./styles.css";
+import { loadLocalisation } from "./localisation";
+
+// Read locale and org from URL params (e.g. from QR code scan)
+const params = new URLSearchParams(window.location.search);
+const locale = params.get("locale") || "en-GB";
+const org = (params.get("org") || "default").toLowerCase().replace(/ /g, "-");
+
+// Load localisation before rendering
+await loadLocalisation({ locale, org });
 
 // Sync theme-color meta tag with CSS variable
 const themeColor = getComputedStyle(document.documentElement)

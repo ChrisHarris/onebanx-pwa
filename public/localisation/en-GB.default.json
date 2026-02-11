@@ -1,0 +1,46 @@
+{
+  "meta": {
+    "locale": "en-GB",
+    "org": "OneBanx",
+    "app name": "OneBanx",
+    "version": 1
+  },
+  "links": {
+    "Terms & Conditions Link": "Terms & Conditions",
+    "Terms & Conditions Link URL": "https://onebanx.com/termsandconditions",
+    "Privacy Policy Link": "Privacy Policy",
+    "Privacy Policy Link URL": "https://onebanx.com/privacypolicy",
+    "FAQ Link": "FAQ",
+    "FAQ Link URL": "https://onebanx.com/faq"
+  },
+
+  "***** CardUser.jsx *****": "",
+  "Welcome To": "Welcome to",
+  "Emblem Icon": "id-badge",
+  "Emblem Icon Variant": "solid",
+  "Sign Up Label": "First time here?",
+  "Sign Up Button": "Sign Up",
+  "Sign Up Button Icon": "user-circle-plus",
+  "Sign Up Button Icon Variant": "solid",
+  "Sign In Label": "Already signed up?",
+  "Sign In Button": "Sign Up",
+  "Sign In Button Icon": "user-key",
+  "Sign In Button Icon Variant": "solid",
+
+  "***** SignUp.jsx *****": "",
+  "Sign Up Input Name Label": "What would you like us to call you?",
+  "Sign Up Input Name Placeholder": "Your name",
+  "Sign Up Input Name Icon": "user",
+  "Sign Up Input Name Icon Variant": "light",
+  "Sign Up Input Tel Label": "Your UK mobile phone number?",
+  "Sign Up Input Tel Placeholder": "+44",
+  "Sign Up Input Tel Icon": "mobile-android",
+  "Sign Up Input Tel Icon Variant": "light",
+  "Sign Up Passkey Button": "Sign up using passkey",
+  "Sign Up Passkey Button Icon": "user-key",
+  "Sign Up Passkey Button Icon Variant": "solid",
+  "Terms Checkbox Label": "I agree to ",
+  "Sign In Small Print A": "Please refer to our ",
+  "Sign In Small Print B": " and ",
+  "Sign In Small Print C": " for more information"
+}

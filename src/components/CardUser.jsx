@@ -1,30 +1,48 @@
-import React from "react";
+import React, { useRef, useEffect } from "react";
+import { t } from "../localisation";
 import "./CardUser.css";
 
-export default function CardUser({ location, institution }) {
+export default function CardUser({ location, org, onSignUp, signUpLoading }) {
+  const buttonRef = useRef(null);
+
+  function handleSignUp() {
+    onSignUp?.();
+  }
+
+  // Sync loading attribute with parent state
+  useEffect(() => {
+    const btn = buttonRef.current;
+    if (!btn) return;
+    if (signUpLoading) {
+      btn.setAttribute("loading", "");
+    } else {
+      btn.removeAttribute("loading");
+    }
+  }, [signUpLoading]);
+
   return (
     <wa-card className="state-user-not-signed-in" appearance="plain">
-			<div className="state-template">
-			<p className="area-subtitle font-size-s">Welcome to {institution && <span>{institution}</span>}</p>
+			<div className="state-template alt">
+			<p className="area-subtitle font-size-s">{t("Welcome To")} {org && <span>{org}</span>}</p>
 			<h2 className="area-title font-size-l">{location}</h2>
 
-			<wa-avatar className="area-emblem emblem" image={institution ? `/images/Emblem-${institution.replace(/ /g, "-")}.svg` : undefined}>
-				{!institution && <wa-icon slot="icon" name="id-badge" variant="solid"></wa-icon>}
+			<wa-avatar className="area-emblem emblem" loading="lazy" image={org ? `/images/Emblem-${org.replace(/ /g, "-")}.svg` : undefined}>
+				{!org && <wa-icon slot="icon" name="id-badge" variant="solid"></wa-icon>}
 			</wa-avatar>
 
-			<p className="area-label-get-started">First time here?</p>
+			<p className="area-label-sign-up">{t("Sign Up Label")}</p>
 
-      <wa-button className="area-button-get-started">
-        Get Started
-				<wa-icon slot="end" name="circle-plus" variant="solid"></wa-icon>
+      <wa-button ref={buttonRef} className="area-button-sign-up" onClick={handleSignUp}>
+        {t("Sign Up Button")}
+				<wa-icon slot="end" name={t("Sign Up Button Icon")} variant={t("Sign Up Button Icon Variant")}></wa-icon>
 			</wa-button>
 
-			<p className="area-label-sign-in">Already signed up?</p>
+			<p className="area-label-sign-in">{t("Sign In Label")}</p>
 			<wa-button className="area-button-sign-in" data-drawer="open profile-signin">
-				Sign In
-				<wa-icon slot="end" name="circle-user" variant="solid"></wa-icon>
+				{t("Sign Up Button")}
+				<wa-icon slot="end" name={t("Sign In Button Icon")} variant={t("Sign In Button Icon Variant")}></wa-icon>
 			</wa-button>
-			
+
       </div>
 
 		</wa-card>

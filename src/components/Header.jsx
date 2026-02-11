@@ -1,4 +1,5 @@
 import React from "react";
+import { t } from "../localisation";
 
 export default function Header() {
   return (
