@@ -23,16 +23,16 @@ const ORGS = [
   { value: "Bank of Scotland", label: "Bank of Scotland", emblem: "/images/Emblem-Bank-of-Scotland.svg" },
 ];
 
-// Helper: attach a wa-change listener to a ref element
-function useWaChange(ref, handler) {
+// Helper: attach a change listener to a ref element
+function useChangeEvent(ref, handler) {
   const saved = useRef(handler);
   saved.current = handler;
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
     const listener = (e) => saved.current(e);
-    el.addEventListener("wa-change", listener);
-    return () => el.removeEventListener("wa-change", listener);
+    el.addEventListener("change", listener);
+    return () => el.removeEventListener("change", listener);
   }, [ref]);
 }
 
@@ -50,18 +50,18 @@ export default function QR() {
   const textareaRef = useRef(null);
 
   // Wire up wa-change listeners
-  useWaChange(siteRef, (e) => setSite(e.target.value));
-  useWaChange(orgRef, (e) => setOrg(e.target.value));
-  useWaChange(localeRef, (e) => setLocale(e.target.value));
-  useWaChange(locationRef, (e) => setLocation(e.target.value));
+  useChangeEvent(siteRef, (e) => setSite(e.target.value));
+  useChangeEvent(orgRef, (e) => setOrg(e.target.value));
+  useChangeEvent(localeRef, (e) => setLocale(e.target.value));
+  useChangeEvent(locationRef, (e) => setLocation(e.target.value));
 
-  // Listen for wa-input on textarea
+  // Listen for input on textarea
   useEffect(() => {
     const el = textareaRef.current;
     if (!el) return;
     const listener = (e) => setEditedUrl(e.target.value);
-    el.addEventListener("wa-input", listener);
-    return () => el.removeEventListener("wa-input", listener);
+    el.addEventListener("input", listener);
+    return () => el.removeEventListener("input", listener);
   }, []);
 
   const generatedUrl = useMemo(() => {
