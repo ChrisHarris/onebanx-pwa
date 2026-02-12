@@ -13,6 +13,9 @@ const reactCompilerPlugins =
   })();
 
 export default defineConfig({
+  build: {
+    target: "esnext",
+  },
   plugins: [
     react({
       babel: {
