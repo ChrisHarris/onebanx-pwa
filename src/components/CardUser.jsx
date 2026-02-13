@@ -1,8 +1,10 @@
 import React, { useRef, useEffect } from "react";
-import { t } from "../localisation";
+import { t, m } from "../localisation";
+import { debug } from "../debug";
 import "./CardUser.css";
 
 export default function CardUser({ location, org, onSignUp, signUpLoading }) {
+  debug("CardUser Layout", t("CardUser Layout"));
   const buttonRef = useRef(null);
 
   function handleSignUp() {
@@ -22,9 +24,9 @@ export default function CardUser({ location, org, onSignUp, signUpLoading }) {
 
   return (
     <wa-card className="state-user-not-signed-in" appearance="plain">
-			<div className="state-template alt">
-			<p className="area-subtitle font-size-s">{t("Welcome To")} {org && <span>{org}</span>}</p>
-			<h2 className="area-title font-size-l">{location}</h2>
+			<div className={`state-template ${t("CardUser Layout")}`}>
+			<p className="area-subtitle font-size-s">{t("Welcome To")} {org !== "default" && <span>{org}</span>}</p>
+			<h2 className="area-title font-size-l">{location || m("app name")}</h2>
 
 			<wa-avatar className="area-emblem emblem" loading="lazy" image={org ? `/images/Emblem-${org.replace(/ /g, "-")}.svg` : undefined}>
 				{!org && <wa-icon slot="icon" name="id-badge" variant="solid"></wa-icon>}
@@ -39,7 +41,7 @@ export default function CardUser({ location, org, onSignUp, signUpLoading }) {
 
 			<p className="area-label-sign-in">{t("Sign In Label")}</p>
 			<wa-button className="area-button-sign-in" data-drawer="open profile-signin">
-				{t("Sign Up Button")}
+				{t("Sign In Button")}
 				<wa-icon slot="end" name={t("Sign In Button Icon")} variant={t("Sign In Button Icon Variant")}></wa-icon>
 			</wa-button>
 

@@ -1,21 +1,21 @@
 /* Card User Template */
 
-/* User Not Signed In */
+/* State: User Not Signed In */
 .state-user-not-signed-in {
 
-    .state-template {
+    .state-template.layout-1 {
         display: grid;
         grid-template-areas:
-        "subtitle   subtitle   subtitle   subtitle   subtitle   emblem   "
-        "title      title      title      title      title      emblem   "
+        "emblem     subtitle   subtitle   subtitle   subtitle   subtitle "
+        "emblem     title      title      title      title      title    "
         "label-su   label-su   label-su   label-si   label-si   label-si "
         "button-su  button-su  button-su  button-si  button-si  button-si";
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: auto 1fr 1fr 1fr 1fr 1fr;
         grid-template-rows: auto auto auto auto;
         gap: 0 var(--wa-space-m);
     }
 
-    .state-template.alt {
+    .state-template.layout-2 {
         display: grid;
         grid-template-areas:
         "subtitle   subtitle   subtitle   subtitle   subtitle   emblem   "
@@ -24,7 +24,7 @@
         "button-su  button-su  button-su  button-su  button-su  button-su"
         "label-si   label-si   label-si   label-si   label-si   label-si "
         "button-si  button-si  button-si  button-si  button-si  button-si";
-        grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+        grid-template-columns: 1fr 1fr 1fr 1fr 1fr auto;
         grid-template-rows: auto auto auto auto auto auto;
         gap: 0 var(--wa-space-m);
     }
@@ -43,7 +43,7 @@
 
     .area-emblem {
     grid-area: emblem;
-    place-self: center end;
+    place-self: center center;
     }
 
     .area-label-sign-up {

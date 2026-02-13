@@ -93,11 +93,24 @@ export default function QR() {
       <Header />
 
       <style>{`
-        .qr-form { max-width: 520px; margin: 40px auto; padding: 0 24px; }
+        .qr-form { max-width: 600px; margin: 40px auto; padding: 0 24px; }
         .qr-output { text-align: center; }
         .qr-output wa-qr-code { margin: 0 auto; }
         .qr-output wa-button { width: 100%; }
         .org-radio wa-avatar { --size: 48px; }
+        wa-radio-group::part(form-control-input) {
+          display:grid;
+          grid-template-columns:1fr 1fr 1fr 1fr; 
+          justify-items:stretch;
+
+ 
+        }
+        
+        wa-radio {
+          flex-flow:column; 
+        } 
+
+        .qr-block {padding:15px; background:white; border-radius:10px; border:1px solid var(--wa-form-control-border-color);}
       `}</style>
 
       <div className="wa-stack wa-gap-l qr-form">
@@ -118,7 +131,7 @@ export default function QR() {
         >
           {ORGS.map((o) => (
             <wa-radio key={o.value} appearance="button" value={o.value}>
-              <div className="wa-stack wa-gap-2xs" style={{ margin: "10px 0" }}>
+              <div className="wa-stack wa-gap-2xs wa-align-items-center" style={{ margin: "10px 0;", textAlign: "center" }}>
                 <wa-avatar label={o.label} image={o.emblem || undefined}>
                   {!o.emblem && <wa-icon slot="icon" name="globe" variant="solid"></wa-icon>}
                 </wa-avatar>
@@ -141,7 +154,9 @@ export default function QR() {
         </wa-select>
 
         <div className="qr-output wa-stack wa-gap-m">
+          <div className="qr-block">
           <wa-qr-code ref={qrRef} value={displayUrl} label="QR Code"></wa-qr-code>
+          </div>
 
           <wa-textarea
             ref={textareaRef}

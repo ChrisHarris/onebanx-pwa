@@ -3,6 +3,7 @@
     "locale": "en-GB",
     "org": "OneBanx",
     "app name": "OneBanx",
+    "theme" : "onebanx",
     "version": 1
   },
   "links": {
@@ -15,17 +16,18 @@
   },
 
   "***** CardUser.jsx *****": "",
+  "CardUser Layout": "layout-1",
   "Welcome To": "Welcome to",
-  "Emblem Icon": "id-badge",
+  "Emblem Icon": "user",
   "Emblem Icon Variant": "solid",
-  "Sign Up Label": "First time here?",
-  "Sign Up Button": "Sign Up",
-  "Sign Up Button Icon": "user-circle-plus",
-  "Sign Up Button Icon Variant": "solid",
-  "Sign In Label": "Already signed up?",
-  "Sign In Button": "Sign Up",
+  "Sign Up Label": "First time using OneBanx?",
+  "Sign Up Button": "Get Started",
+  "Sign Up Button Icon": "circle-plus",
+  "Sign Up Button Icon Variant": "light",
+  "Sign In Label": "Already have a login?",
+  "Sign In Button": "Sign in with Passkey",
   "Sign In Button Icon": "user-key",
-  "Sign In Button Icon Variant": "solid",
+  "Sign In Button Icon Variant": "light",
 
   "***** SignUp.jsx *****": "",
   "Sign Up Input Name Label": "What would you like us to call you?",
@@ -42,5 +44,10 @@
   "Terms Checkbox Label": "I agree to ",
   "Sign In Small Print A": "Please refer to our ",
   "Sign In Small Print B": " and ",
-  "Sign In Small Print C": " for more information"
+  "Sign In Small Print C": " for more information",
+
+  "***** CardAbout.jsx *****": "",
+  "About Title": "What is OneBanx?",
+  "About Emblem Icon": "circle-question",
+  "About Emblem Icon Variant": "solid"
 }

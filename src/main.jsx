@@ -7,16 +7,30 @@ import "@awesome.me/webawesome/dist/webawesome.js";
 import "./icons.js"; // Self-hosted icon library (must be before other components)
 import "./webawesome.js"; // All Web Awesome component registrations
 import "@awesome.me/webawesome/dist/styles/webawesome.css";
-import "./styles.css";
-import { loadLocalisation } from "./localisation";
+import { loadLocalisation, m } from "./localisation";
+import { DEFAULT_ORG } from "./config";
 
 // Read locale and org from URL params (e.g. from QR code scan)
 const params = new URLSearchParams(window.location.search);
 const locale = params.get("locale") || "en-GB";
-const org = (params.get("org") || "default").toLowerCase().replace(/ /g, "-");
+const org = (params.get("org") || DEFAULT_ORG).replace(/ /g, "-");
 
 // Load localisation before rendering
 await loadLocalisation({ locale, org });
+
+// Load base styles + org theme CSS
+const baseStyles = document.createElement("link");
+baseStyles.rel = "stylesheet";
+baseStyles.href = "/css/styles.css";
+document.head.appendChild(baseStyles);
+
+const theme = m("theme");
+if (theme) {
+  const themeLink = document.createElement("link");
+  themeLink.rel = "stylesheet";
+  themeLink.href = `/css/theme.${theme}.css`;
+  document.head.appendChild(themeLink);
+}
 
 // Sync theme-color meta tag with CSS variable
 const themeColor = getComputedStyle(document.documentElement)
@@ -24,6 +38,22 @@ const themeColor = getComputedStyle(document.documentElement)
   .trim();
 if (themeColor) {
   document.querySelector('meta[name="theme-color"]')?.setAttribute("content", themeColor);
+}
+
+// Set page title and patch manifest with localised app name
+const appName = m("app name");
+if (appName) document.title = appName;
+if (appName) {
+  const manifestLink = document.querySelector('link[rel="manifest"]');
+  if (manifestLink) {
+    const res = await fetch(manifestLink.href);
+    const manifest = await res.json();
+    manifest.name = appName;
+    manifest.short_name = appName;
+    manifestLink.href = URL.createObjectURL(
+      new Blob([JSON.stringify(manifest)], { type: "application/json" })
+    );
+  }
 }
 
 import App from "./App";

@@ -1,0 +1,91 @@
+:root {
+
+
+}
+
+/* Font Size Utilities */
+.font-size-2xs {font-size:var(--wa-font-size-2xs);}
+.font-size-xs {font-size:var(--wa-font-size-xs);}
+.font-size-s {font-size:var(--wa-font-size-s);}
+.font-size-m {font-size:var(--wa-font-size-m);}
+.font-size-l {font-size:var(--wa-font-size-l);}
+.font-size-xl {font-size:var(--wa-font-size-xl);}
+.font-size-2xl {font-size:var(--wa-font-size2xl);}
+
+/* Body */
+body {
+    background-color:var(--ob-color-surface-main);
+}
+
+/* Header */
+header {
+	position:sticky;
+	z-index:1;
+	top:0;
+	background-color:var(--ob-color-surface-header);
+	color:var(--ob-color-on-surface-header);
+	padding: var(--ob-padding-header);
+	overflow:hidden;
+	box-shadow: 0 8px 20px rgb(var(--shadow-color) / 5%);
+    backdrop-filter: var(--ob-filter-surface-header);
+
+    h1 {
+        font-size: var(--ob-font-size-header);
+    }
+
+	img {
+		display:block;
+        height:var(--ob-height-header-logo);
+	}
+
+    wa-button {
+		&:is(:hover, :focus-visible)::part(base) {
+            background-color: var(--wa-color-neutral-alpha-10);
+        }
+
+        &:is(:active)::part(base) {
+            background-color: var(--wa-color-neutral-alpha-20);
+        }
+
+	    wa-icon {
+            font-size:var(--ob-font-size-header-icon);
+            color:var(--ob-color-on-surface-header-icon);
+        }
+	}
+}
+
+/* Section */
+section {
+    padding: var(--ob-space-section);
+    gap:var(--ob-gap-section);
+}
+
+/* Card */
+wa-card {
+	background:var(--ob-color-surface-card);
+	box-shadow: 0 8px 20px rgb(var(--shadow-color) / 5%);
+	border-radius:var(--ob-border-radius-card);
+	&::part(body) {
+		padding:var(--ob-padding-card);
+    }
+
+    wa-avatar.emblem {
+        background:var(--ob-color-surface-emblem);
+        color:var(--ob-color-on-surface-emblem);
+    }
+
+    wa-button {
+        &::part(base) {
+            border-radius: var(--ob-border-radius-card-button);
+            background:var(--ob-color-surface-card-button);
+        }
+    }
+}
+
+/* Drawer */
+wa-drawer {
+    &::part(body) {
+        height:80vh;
+        border-radius: var(--wa-border-radius-l) var(--wa-border-radius-l) 0 0;
+    }
+}

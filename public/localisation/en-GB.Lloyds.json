@@ -1,7 +1,29 @@
 {  
     "meta": {
     "org": "Lloyds",
-    "app name": "Business Cash Flo",
+    "app name": "Business Cash Flow",
+    "theme": "business-cash-flow",
     "version": 1
-  }
+    },
+
+    "***** CardUser.jsx *****": "",
+    "CardUser Layout": "layout-2",
+    "Welcome To": "Welcome to",
+    "Emblem Icon": "id-badge",
+    "Emblem Icon Variant": "solid",
+    "Sign Up Label": "First time here?",
+    "Sign Up Button": "Sign Up",
+    "Sign Up Button Icon": "user-circle-plus",
+    "Sign Up Button Icon Variant": "solid",
+    "Sign In Label": "Already signed up?",
+    "Sign In Button": "Sign in",
+    "Sign In Button Icon": "user-key",
+    "Sign In Button Icon Variant": "solid",
+
+    "***** SignUp.jsx *****": "",
+
+    "***** CardAbout.jsx *****": "",
+    "About Title": "How to use this app",
+    "About Emblem Icon": "stars",
+    "About Emblem Icon Variant": "light"
 }

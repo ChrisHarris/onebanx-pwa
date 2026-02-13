@@ -2,6 +2,8 @@
 // localisation.js
 // ----------------------------------
 
+import { debug } from "./debug";
+
 let dictionary = {};
 let links = {};
 let meta = {};
@@ -11,6 +13,7 @@ export async function loadLocalisation({ locale = "en-GB", org = "default" }) {
     .then(r => (r.ok ? r.json() : {}))
     .catch(() => ({}));
 
+  debug("loadLocalisation base", base);
   dictionary = base;
   links = base.links ?? {};
   meta = base.meta ?? {};

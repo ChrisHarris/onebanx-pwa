@@ -1,0 +1,86 @@
+/* Theme: OneBanx */
+
+/***** Fonts *****/
+
+/* These can be loaded according to organisation brand */
+/* They can then be assigned to the appropriate '--wa-font-family' types identified below */
+@font-face {
+  font-family: 'Sen Regular';
+  font-style: normal;
+  font-weight: 400;
+  src: url('/fonts/Sen-Regular.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sen Medium';
+  font-style: normal;
+  font-weight: 500; /* Medium */
+  src: url('/fonts/Sen-Medium.woff2') format('woff2');
+}
+
+@font-face {
+  font-family: 'Sen Bold';
+  font-style: normal;
+  font-weight: 700; /* Bold */
+  src: url('/fonts/Sen-Bold.woff2') format('woff2');
+}
+
+
+/***** Variables *****/
+:root {
+
+    /* Font Assignments */
+    --ob-font-family-heading:"Sen";
+    --ob-heading-font:"Sen Medium";
+    --ob-font-family-body:"Sen Regular";
+
+    --wa-font-family-heading:var(--ob-font-family-heading);
+    --wa-font-family-body:var(--ob-font-family-body);
+
+    /* Named Theme Colors */
+    /* These can be named according to organisation brand */
+    /* They can then be assign to the appropriate components identified below */
+
+    --white: #FFFFFF;
+    --black: #000000;
+    --navy-blue:#193153;
+    --lapis-blue:#195C9A;
+    --salmon-pink:#FD4C6C;
+    --light-grey:#F1F1F1;
+    --grey:#C3C3C3;
+    --dark-grey:#808080;
+    --charcoal:#323233;
+
+    /* Theme Color - This is the color below the status bar on mobile (iOS, Android) and Chrome Tab tint */
+    --ob-theme-color: var(--navy-blue);
+
+    /* Main */
+    --ob-color-surface-main:var(--light-grey);
+
+    /* Header */
+    --ob-color-surface-header: color-mix(in srgb, var(--navy-blue) 85%, transparent);
+    --ob-filter-surface-header:blur(20px);
+    --ob-color-on-surface-header: var(--black);
+    --ob-height-header-logo:var(--wa-font-size-2xl);
+    --ob-color-on-surface-header-icon: var(--white);
+    --ob-font-size-header-icon: var(--wa-font-size-xl);
+
+    --ob-padding-header: var(--wa-space-s) var(--wa-space-m);
+
+    --ob-font-size-header: var(--wa-font-size-xl);
+
+    /* Section */
+    --ob-space-section: var(--wa-space-s) var(--wa-space-s);
+    --ob-gap-section: var(--wa-space-m);
+
+    /* Card */
+    --ob-color-surface-card:var(--white);
+    --ob-border-radius-card:var(--wa-border-radius-l);
+    --ob-padding-card: var(--wa-space-m) var(--wa-space-m);
+    --ob-color-surface-emblem:var(--salmon-pink);
+    --ob-color-on-surface-emblem:var(--white);
+    --ob-border-radius-card-button:var(--wa-border-radius-pill);
+    --ob-color-surface-card-button:var(--lapis-blue);
+    --ob-color-on-surface-card-button:var(--white);
+
+}
